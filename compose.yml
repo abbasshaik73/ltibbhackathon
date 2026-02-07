@@ -1,0 +1,18 @@
+---
+version: "3"
+services:
+ mysqldb:
+   image: abbasshaik739/bloodbank:dbimage
+   ports:
+     - "3306:3306"
+   deploy:
+     replicas: 2
+
+ application:
+   image: abbasshaik739/bloodbank:appimage
+   ports:
+     - "1111:80"
+   deploy:
+     replicas: 2
+   depends_on:
+     - "mysqldb"
