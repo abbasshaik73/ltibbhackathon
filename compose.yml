@@ -5,15 +5,12 @@ services:
    image: abbasshaik739/bloodbank:dbimage
    ports:
      - "3306"
-   deploy:
-     replicas:1
    
 
  application:
    image: abbasshaik739/bloodbank:appimage
    ports:
      - "1111"
-   deploy:
-     replicas:1
+   
    depends_on:
      - "mysqldb"
